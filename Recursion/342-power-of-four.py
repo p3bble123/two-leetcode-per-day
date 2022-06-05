@@ -6,7 +6,7 @@ class Solution:
             return False
 
         if n % 2 != 0:
-            return Falseit
+            return False
         else:
             if n % 4 != 0:
                 return False
