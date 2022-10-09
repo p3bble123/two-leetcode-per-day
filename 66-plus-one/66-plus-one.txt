@@ -1,0 +1,26 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        if digits[len(digits)-1] == 9:
+            return self.addCarry(digits, len(digits)-1, 1)
+        else:
+            digits[len(digits)-1] += 1
+            return digits
+        
+    
+    def addCarry(self, digits, curIdx, carry):
+        if carry == 0:
+            return digits
+
+        if digits[curIdx] == 9:
+            if curIdx == 0:
+                digits[0] = 0
+                digits.insert(0,1)
+                return digits
+            
+            digits[curIdx] = 0
+            return self.addCarry(digits, curIdx-1, carry)
+        else:    
+            digits[curIdx] += 1
+        
+        return digits
+
