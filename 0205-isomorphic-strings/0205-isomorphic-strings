@@ -1,0 +1,27 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        encodedS = self.getEncodedString(s)
+        encodedT = self.getEncodedString(t)
+
+        if encodedS == encodedT:
+            return True
+        else:
+            return False
+
+    def getEncodedString(self, s):
+        encode = {}
+        encodedString = ''
+        count = 1
+
+        for char in s:
+            if char in encode:
+                encodedString += encode[char]
+                continue
+
+            encode[char] = str(count)
+            encodedString += encode[char]
+            count += 1
+
+        return encodedString
+
+
